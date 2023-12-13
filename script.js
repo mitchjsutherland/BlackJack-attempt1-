@@ -35,21 +35,32 @@ function newCard(min, max) {
 
 // console.log(newCard(4, 21))
 
-
 const offerHit = function() {
-    alert('Would you like to hit?') 
+    confirm('Would you like to hit?') 
 }
 
+const gameConfirmed = prompt('Would you like to play a game?')
+
+
+
 function playgame() {
-    playerScore += newCard(4, 21);
-    if (playerScore == 21) {
-        alert('Player wins!');
-    } else {
-        console.log(`You now have ${playerScore}`)
-        dealerScore += newCard(2, 11);
-        console.log(`The dealer has ${dealerScore}`)
+    if (gameConfirmed) {
+        playerScore += newCard(4, 21);
+        if (playerScore == 21) {
+            alert('Player wins!');
+        } else {
+            console.log(`You now have ${playerScore}`)
+            dealerScore += newCard(2, 11);
+            console.log(`The dealer has ${dealerScore}`)
+        }
     }
+
+
     offerHit()
+    if (true) {
+        window.confirm('You have hit!')
+    }
+ 
 }
 
 console.log(playgame())
