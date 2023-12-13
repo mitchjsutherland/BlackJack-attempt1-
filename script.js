@@ -51,6 +51,7 @@ const hitPlayer = function() {
 function playgame() {
     if (gameConfirmed) {
         hitPlayer(4, 21);
+        // playerScore += newCard(4, 21);
         // The hitplayer function initally came back as 0. I will take accept input similar to newCard function. Not sure how this works?
         if (playerScore == 21) {
             alert('Player wins!');
@@ -61,15 +62,18 @@ function playgame() {
         }
     }
 
-    offerHit()
-    if (true) {
-        hitPlayer(4, 21);
-        if (playerScore == 21) {
-            alert('Player wins!');
-        } else if (playerScore > 21) {
-            alert(`Player loses with ${playerScore}`)
-        } else {
-            console.log(`You now have ${playerScore}`)
+
+    while (playerScore < 21) {
+        offerHit()
+        if (true) {
+            hitPlayer(4, 21);
+            if (playerScore == 21) {
+                alert('Player wins!');
+            } else if (playerScore > 21) {
+                alert(`Player loses with ${playerScore}`)
+            } else {
+                console.log(`You now have ${playerScore}`)
+            }
         }
     }
 }
