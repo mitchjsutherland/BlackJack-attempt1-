@@ -33,14 +33,6 @@ function newCard(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-// console.log(newCard(4, 21))
-
-const gameConfirmed = confirm('Would you like to play a game?');
-
-const offerHit = function() {
-    confirm('Would you like to hit?') 
-}
-
 const hitPlayer = function() {
     playerScore += newCard(4, 21);
 }
@@ -49,12 +41,21 @@ const hitPlayerLow = function() {
     playerScore += newCard(4, 11);
 }
 
+// console.log(newCard(4, 21))
+
+let gameConfirmed = confirm('Would you like to play a game?');
+
+let hitChoice;
+
+function offerHit() {
+    return confirm('Would you like to hit?')
+}
+
 
 function playgame() {
+    /* VERSION 1 ----------------------------------------------------- Both OK and CANCEL buttons on confirm box acting is OK
     if (gameConfirmed) {
         hitPlayer();
-        // playerScore += newCard(4, 21);
-        // The hitplayer function initally came back as 0. I will take accept input similar to newCard function. Not sure how this works?
         if (playerScore == 21) {
             alert('Player wins!');
         } else {
@@ -64,6 +65,59 @@ function playgame() {
         }
     }
 
+        while (playerScore > 0 && playerScore < 21) {
+        offerHit();
+        if (true) {
+            hitPlayerLow();
+            if (playerScore == 21) {
+                alert(`Player wins. You have ${playerScore}!`);
+            } else if (playerScore > 21) {
+                alert(`Player loses with ${playerScore}`);
+            } else {
+                console.log(`You now have ${playerScore}`);
+            }
+        } else {
+            alert(`Player ends with ${playerScore}`)
+        }
+        ---------------------------------------------------------------
+    */
+
+
+    // VERSION 2 ----------------------------------------------------- Each confirm pop up is repeating twice
+    if (confirm('Would you like to play a game?') == true) {
+        hitPlayer();
+        if (playerScore == 21) {
+            alert('Player wins!');
+        } else {
+            console.log(`You now have ${playerScore}`)
+            dealerScore += newCard(2, 11);
+            console.log(`The dealer has ${dealerScore}`)
+        }
+    } else {
+        alert('Maybe next time!');
+    }
+
+    while (playerScore > 0 && playerScore < 21) {
+        offerHit();
+        if (confirm('Would you like to hit?') == true) {
+            hitPlayerLow();
+            if (playerScore == 21) {
+                alert(`Player wins. You have ${playerScore}!`);
+            } else if (playerScore > 21) {
+                alert(`Player loses with ${playerScore}`);
+            } else {
+                console.log(`You now have ${playerScore}`);
+                }
+        } else {
+                alert(`Player ends with ${playerScore}`)
+            }
+        }
+    //---------------------------------------------------------
+}
+
+
+
+/*
 
     while (playerScore < 21) {
         offerHit();
@@ -84,6 +138,8 @@ function playgame() {
         }
     }
 }
+
+
 
 /* REVIEW THIS WITH TA TO UNDERSTAND WHY IT WILL NOT WORK AND/OR HOW TO INCORPORATE CANCEL BUTTON FROM CONFIRM BOX (FALSE) TO EXECUTE.
 
