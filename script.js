@@ -35,8 +35,7 @@ function newCard(min, max) {
 
 // console.log(newCard(4, 21))
 
-
-const gameConfirmed = confirm('Would you like to play a game?')
+const gameConfirmed = confirm('Would you like to play a game?');
 
 const offerHit = function() {
     confirm('Would you like to hit?') 
@@ -46,11 +45,14 @@ const hitPlayer = function() {
     playerScore += newCard(4, 21);
 }
 
+const hitPlayerLow = function() {
+    playerScore += newCard(4, 11);
+}
 
 
 function playgame() {
     if (gameConfirmed) {
-        hitPlayer(4, 21);
+        hitPlayer();
         // playerScore += newCard(4, 21);
         // The hitplayer function initally came back as 0. I will take accept input similar to newCard function. Not sure how this works?
         if (playerScore == 21) {
@@ -64,18 +66,46 @@ function playgame() {
 
 
     while (playerScore < 21) {
-        offerHit()
+        offerHit();
         if (true) {
-            hitPlayer(4, 21);
+            hitPlayerLow();
             if (playerScore == 21) {
-                alert('Player wins!');
+                alert(`Player wins. You have ${playerScore}!`);
             } else if (playerScore > 21) {
-                alert(`Player loses with ${playerScore}`)
+                alert(`Player loses with ${playerScore}`);
             } else {
-                console.log(`You now have ${playerScore}`)
+                console.log(`You now have ${playerScore}`);
             }
+        }
+        
+        if (false) {
+            alert(`Player ends with ${playerScore}`)
+            // Attempted to address this in the version below but not currently working.
         }
     }
 }
+
+/* REVIEW THIS WITH TA TO UNDERSTAND WHY IT WILL NOT WORK AND/OR HOW TO INCORPORATE CANCEL BUTTON FROM CONFIRM BOX (FALSE) TO EXECUTE.
+
+while (playerScore < 21) {
+    offerHit();
+
+    if (offerHit() === true) {
+        hitPlayer(4, 11);
+        if (playerScore == 21) {
+            alert('Player wins!');
+        } else if (playerScore > 21) {
+            alert(`Player loses with ${playerScore}`)
+        } else {
+            console.log(`You now have ${playerScore}`)
+        }
+    }
+    
+    if (offerHit() === false) {
+        alert(`Player ends with ${playerScore}`)
+    }
+}
+*/
+
 
 console.log(playgame())
