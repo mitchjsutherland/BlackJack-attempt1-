@@ -45,12 +45,9 @@ const hitPlayerLow = function() {
 
 let gameConfirmed = confirm('Would you like to play a game?');
 
-let hitChoice;
-
 function offerHit() {
     return confirm('Would you like to hit?')
 }
-
 
 function playgame() {
     /* VERSION 1 ----------------------------------------------------- Both OK and CANCEL buttons on confirm box acting is OK
@@ -98,7 +95,6 @@ function playgame() {
     }
 
     while (playerScore > 0 && playerScore < 21) {
-        offerHit();
         if (confirm('Would you like to hit?') == true) {
             hitPlayerLow();
             if (playerScore == 21) {
@@ -110,14 +106,16 @@ function playgame() {
                 }
         } else {
                 alert(`Player ends with ${playerScore}`)
+                break;
             }
         }
     //---------------------------------------------------------
 }
 
+console.log(playgame())
 
 
-/*
+/* BROKEN CODE - INCLUDES PREVIOUS ATTEMPTS 
 
     while (playerScore < 21) {
         offerHit();
@@ -164,4 +162,3 @@ while (playerScore < 21) {
 */
 
 
-console.log(playgame())
