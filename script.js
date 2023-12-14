@@ -49,6 +49,26 @@ function offerHit() {
     return confirm('Would you like to hit?')
 }
 
+function dealerPlay() {
+    dealerScore += newCard(4, 11);
+    alert(`The dealer now has ${dealerScore}`);
+    console.log(`The dealer now has ${dealerScore}`);
+    while (dealerScore < 18) {
+        dealerScore += newCard(4, 11);
+        alert(`The dealer now has ${dealerScore}`);
+        console.log(`The dealer has ${dealerScore}`)
+    }
+
+    if (dealerScore >= 18 && dealerScore <= 21) {
+        alert(`The dealer stays at ${dealerScore}`)
+        console.log(`The dealer stays at ${dealerScore}`)
+    } else {
+        alert(`The dealer has bust with ${dealerScore}`)
+        console.log(`The dealer has bust with ${dealerScore}`)
+        }
+}
+
+
 function playgame() {
     /* VERSION 1 ----------------------------------------------------- Both OK and CANCEL buttons on confirm box acting is OK
     if (gameConfirmed) {
@@ -106,10 +126,14 @@ function playgame() {
                 }
         } else {
                 alert(`Player ends with ${playerScore}`)
+                dealerPlay()
                 break;
             }
         }
     //---------------------------------------------------------
+
+
+
 }
 
 console.log(playgame())
