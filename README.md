@@ -1,8 +1,13 @@
 # Blackjack Game
 
-In this mini-project you will work with a partner to complete a simple blackjack game.
+You can play now here:
+
+https://mitchjsutherland.github.io/BlackJack-attempt1-/
+
 
 ## Instructions
+
+In this mini-project you will work with a partner to complete a simple blackjack game.
 
 * Create a simple blackjack game with the following properties:
 
