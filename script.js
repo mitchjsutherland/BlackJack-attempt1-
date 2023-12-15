@@ -137,7 +137,7 @@ function playgame() {
     } else if (playerScore > 0 && playerScore <= 21 && playerScore > dealerScore) {
         alert(`You win! You scored ${playerScore}.`)
         // Offer another game
-    } else if (dealerScore <= 21 && playerScore < dealerScore) {
+    } else if ((dealerScore <= 21 && playerScore < dealerScore) || (dealerScore <= 21 && playerScore > 21)) {
         alert(`Dealer wins with ${dealerScore}.`)
         // Offer another game
     } else if (playerScore > 21) {
