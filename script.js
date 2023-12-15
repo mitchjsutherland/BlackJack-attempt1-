@@ -126,13 +126,30 @@ function playgame() {
                 console.log(`You now have ${playerScore}`);
                 }
         } else {
-                alert(`Player ends with ${playerScore}`)
-                dealerPlay()
-                break;
-            }
+            alert(`Player ends with ${playerScore}`)
+            dealerPlay()
+            break;
         }
-    //---------------------------------------------------------------
-
+    }
+       
+    if (playerScore === dealerScore) {
+        alert(`You have tied. Both players scored ${playerScore}`)
+    } else if (playerScore > 0 && playerScore <= 21 && playerScore > dealerScore) {
+        alert(`You win! You scored ${playerScore}.`)
+        // Offer another game
+    } else if (dealerScore <= 21 && playerScore < dealerScore) {
+        alert(`Dealer wins with ${dealerScore}.`)
+        // Offer another game
+    } else if (playerScore > 21) {
+        alert(`Dealer wins with ${dealerScore}.`)
+        // Offer another game
+    } else if (dealerScore > 21) {
+        alert(`You win! You scored ${playerScore}.`)
+    } else {
+        alert(`Are you ready to play again?`)
+        // Offer another game
+    }
+    //---------------------------------------------------------------  
 }
 
 console.log(playgame())
